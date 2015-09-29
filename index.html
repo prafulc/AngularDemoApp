@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+	<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>AngularJS demo</title>
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+        <link rel="stylesheet" href="lib/css/bootstrap.min.css">
+        <script src="lib/js/angular.js"></script>
+        <script src="lib/js/angular-route.js"></script>
+        <script src="javascript/angular-cookies.js"></script>
+        <script src="script.js"></script>
+        <script src="controllers.js"></script>
+    </head>
+
+    <body ng-app="phoneApp">
+        <div class="container">
+        	<h1>
+                <a href="#/"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Home</a>
+            </h1>
+            <div>
+                <minicart></minicart>
+                <br />
+            </div>
+        </div>
+        <div ng-view></div>
+    </body>
+</html>

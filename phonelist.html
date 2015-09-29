@@ -1,0 +1,61 @@
+<div class="container well" >
+	<h1 class="page-header">Phone Lists</h1>
+
+	<div class="pull-right">
+		<div class="input-group">
+		  	<input type="text" class="form-control" placeholder="Search..." ng-model="filterQuery" >
+		  	<span class="input-group-addon">
+		  		<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+		  	</span>
+		</div>
+	</div>
+	<strong>{{phones.length}} phones found.</strong>
+	<div class="clearfix"></div>
+	<br />
+	<div class="clearfix"></div>
+	<ul>
+        <li class="media" ng-repeat="cell in phones | filter:filterQuery | orderBy:sortOrder">
+        	<phone phonedata="{{cell}}"></phone>
+			<!-- <div class="media-left media-middle">
+			    <a href="#/{{cell.id}}">
+			      	<img class="media-object" width="96px" ng-src="images/{{cell.img}}" alt="image">
+			    </a>
+			</div>
+		  	<div class="media-body">
+		    	<a href="#/{{cell.id}}"><h4 class="media-heading">{{cell.name}} <small class="pull-right"><em>Rs. {{cell.price}} /-</em></small></h4></a>
+		    	<p class="text-justify">{{cell.desc}}</p>
+		  	</div>
+		  	<hr /> -->
+		</li>
+	</ul>
+</div>
+
+<script type="text/ng-template" id="phone">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<a href="#/{{phone.id}}"><h3 class="panel-title">{{phone.name}}</h3></a>
+		</div>
+		<div class="panel-body">
+			<div class="media-left media-middle">
+			    <a href="#/{{phone.id}}">
+			      	<img class="media-object" width="96px" ng-src="images/{{phone.img}}" alt="image">
+			    </a>
+			</div>
+		  	<div class="media-body">
+		  		<div class="well pull-right col-md-3 text-center" style="margin-left:20px" ng-switch on="phone">
+		  			<div ng-if="phone.offerprice.length > 0">
+			  			<s style="color:red; font-weight: 700">Rs. {{phone.price}} /-</s><br />
+			  			<em style="font-size:1.5em; color:red; font-weight: 700">Rs. {{phone.total}} /-</em>
+		  			</div>
+		  			<div ng-if="!phone.offerprice.length">
+			  			<em style="font-size:1.5em; color:red; font-weight: 700">Rs. {{phone.total}} /-</em>
+		  			</div>
+		  		</div>
+		    	<p class="text-justify">{{phone.desc}}</p>
+		    	<a href="#/{{phone.id}}" class="btn btn-default">Read More</a> <addtocartbutton item="{{phone.id}}"></addtocartbutton>
+		    	<div class="clearfix"></div>
+		  	</div>
+		  	<div class="clearfix"></div>
+		</div>
+	</div>
+</script>

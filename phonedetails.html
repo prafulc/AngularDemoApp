@@ -1,0 +1,143 @@
+<div class="container well" >
+	<h1 class="page-header">{{phone.name}} </h1>
+	<div class="thumbnail col-md-6">
+    	<img ng-src="images/{{phone.mainimage}}" alt="{{phone.name}}" width="100%" style="max-height:450px; min-height: 450px;" class="media-object">
+      <div class="bg-info" style="border: thin soild black; text-align:center;">
+        <ul class="list-inline">
+          <li ng-repeat="image in phone.img">
+            <img alt="{{phone.name}}" width="80px" style="border: thin solid black;" ng-src="images/{{image.file}}" ng-click="setDefault(image.file)">
+          </li>
+        </ul>
+      </div>
+  </div>
+	<div class="col-md-6">
+		<div class="col-md-6 well-lg pull-right bg-info" style="margin-bottom:10px; border: thin solid #93D1F0;">
+      <table class="table-condensed" style="width:100%">
+        <tr>
+          <td>Original Price</td>
+          <td>:</td>
+          <td ng-if="phone.offerprice.length"><s>{{phone.price | currency:'Rs.'}}</s></td>
+          <td ng-if="!phone.offerprice.length">{{phone.price | currency:'Rs.'}}</td>
+        </tr>
+        <tr ng-if="phone.offerprice.length">
+          <td>Offer Price</td>
+          <td>:</td>
+          <td>{{phone.offerprice | currency:'Rs.'}}</td>
+        </tr>
+        <tr>
+          <td>Taxes</td>
+          <td>:</td>
+          <td>{{phone.tax | currency:'Rs.'}}</td>
+        </tr>
+        <tr class="bg-danger">
+          <th>Total</th>
+          <th>:</th>
+          <th>{{phone.total | currency:'Rs.'}}</th>
+        </tr>
+        <tr>
+          <th col-span="2">
+            <addtocartbutton item="{{phone.id}}"></addtocartbutton>
+          </th>
+        </tr>
+      </table>
+
+    </div>
+		<div class="col-md-6">
+			<strong>Silent Features:</strong>
+			<ul>
+				<li ng-repeat="feature in phone.features">{{feature}}</li>
+			</ul>
+		</div>
+		<div class="clearfix"></div>
+    <div class="well-lg bg-warning" style="margin-bottom:10px; border: thin solid #E6D16A">
+      <div class="alert alert-success" ng-show="notificationForm.$submitted && notificationForm.success && !hide">
+        <button type="button" class="close" ng-click="hide=true" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        You have been added to availability notification of this product successfully 
+      </div>
+      <div class="alert alert-danger" ng-show="notificationForm.$submitted && !notificationForm.success && !hide">
+        <button type="button" class="close" ng-click="hide=true" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        Error!
+      </div>
+      <form class="form-inline text-center" ng-submit="notifyme()"  name="notificationForm">
+        <label class="sr-only" for="exampleInputEmail3">Enter Your Email</label>
+        <div class="form-group">
+          <input type="email" class="form-control" id="exampleInputEmail3" name="notifyemail" ng-model="notify.email" placeholder="Email" required>
+          <input type="hidden" ng-model="notify.pid" name="pid" value="{{phone.id}}" />
+        </div>
+        <button type="submit" class="btn btn-default">Notify</button>
+      </form>
+    </div>
+    <div class="clearfix"></div>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Short Description</h3>
+			</div>
+			<div class="panel-body">
+				<p class="text-justify">{{phone.desc}}</p>
+			</div>
+		</div>
+	</div>
+  <div class="clearfix"></div>
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h2 class="panel-title">Description</h2>
+      </div>
+      <div class="panel-body" ng-bind-html="phone.detaildescription"></div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h2 class="panel-title">Comments & Reviews</h2>
+      </div>
+      <div class="panel-body">
+        <ul class="media-list">
+          <li class="media" ng-repeat="comment in comments">
+            <comment commentdata="{{comment}}"></comment>
+          </li>
+        </ul>
+        <div class="well well-lg">
+          <commentform></commentform>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/ng-template" id="comment">
+  <div class="media">
+    <div class="media-left">
+      <a href="#">
+        <img alt="64x64" src="images/default_profile.png" class="media-object" style="width: 80px; height: 80px;" data-holder-rendered="true">
+      </a>
+    </div>
+    <div class="media-body">
+      <em class="pull-right"><small>{{comment.datetime | date:'medium' }}</small></em>
+      <h4 class="media-heading">{{comment.name}} <small><em>- {{comment.email}}</em></small></h4>
+      <p class="text-justify">{{comment.comment}}</p>
+    </div>
+  </div>
+</script>
+
+<script type="text/ng-template" id="commentform">
+  <form name="comment-form" ng-submit="makecomment()">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" name="name" ng-model="user.name" placeholder="Name">
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" class="form-control" name="email" ng-model="user.email" placeholder="Email">
+      </div>
+      <div class="form-group">
+        <label>Comment</label>
+        <textarea type="email" class="form-control" name="mycomment" ng-model="user.mycomment" placeholder="Your Comments Here...!!!"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary btn-default">Submit</button>
+    </div>
+    <div class="col-md-6">Rating</div>
+    <div class="clearfix"></div>
+  </form>
+</script>

@@ -1,0 +1,32 @@
+[
+    {
+        "id":"1",
+        "name": "Samsung",
+        "img": "samsung.jpg",
+        "desc": "Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. ",
+        "price": "5000",
+        "offerprice":"4000"
+    },
+    {
+        "id":"2",
+        "name": "Maxx",
+        "img": "max.jpg",
+        "desc": "Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Donec lacinia congue felis in faucibus. ",
+        "price": "5000",
+        "offerprice":"2500"
+    },
+    {
+        "id":"3",
+        "name": "Micromax",
+        "img": "micromax.jpg",
+        "desc": "Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Donec lacinia congue felis in faucibus. ",
+        "price": "5000"
+    },
+    {
+        "id":"4",
+        "name": "Sampung",
+        "img": "commonphone.jpg",
+        "desc": "Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. ",
+        "price": "5000"
+    }
+]

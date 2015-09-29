@@ -1,0 +1,31 @@
+<div>
+	<div class="col-md-2 pull-right" style="display:block; cursor:pointer">
+	    <div class="bg-warning text-center" style="padding: 20px 0;display:block;" ng-click="getCartItems()" > MiniCart - {{getItemCount}} items</div>
+	    <div ng-show="showcart" class="bg-warning" style="width: 160%;position: absolute;left: -60px;padding: 20px;border-radius: 5px;border: thin solid #ABABAB;opacity: 0.9; z-index: 9">
+	    	<table class="table">
+	    		<tr>
+	    			<th>Items</th>
+	    			<th>Qty</th>
+	    			<th>Price</th>
+	    			<th></th>
+	    		</tr>
+	    		<tr ng-repeat="item in cartItems">
+	    			<td>{{item.name}}</td>
+	    			<td>{{item.qty}}</td>
+	    			<td>{{item.price | currency:"Rs. ":2}}</td>
+	    			<td><a ng-click="removeItem(item.id)" class="bg-danger" style="display:block; padding: 1px 5px; text-align:center; border:thin solid black">x</a></td>
+	    		</tr>
+	    		<tr>
+	    			<td colspan="4" ng-show="isEmpty()" class="text-center"><small><em>Cart is empty</em></small></td>
+	    		</tr>
+	    		<tr>
+	    			<td colspan="2"><strong>Total</strong></td>
+	    			<td colspan="2"><strong>{{cartTotal | currency:"Rs. ":2}}</strong></td>
+	    		</tr>
+	    	</table>
+	    	<button class="btn btn-danger" ng-disabled="isEmpty();" ng-click="emptyCart()">Empty</button>
+	    	<a class="btn btn-primary col-md-offset-1" ng-disabled="isEmpty();" href="#/checkout">Checkout</a>
+	    </div>
+	</div>
+	<div class="clearfix"></div>
+<div>
